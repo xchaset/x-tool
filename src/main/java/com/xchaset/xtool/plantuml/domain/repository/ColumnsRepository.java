@@ -1,7 +1,7 @@
-package com.xchaset.xtool.gen.er.domain.repository;
+package com.xchaset.xtool.plantuml.domain.repository;
 
-import com.xchaset.xtool.gen.er.infrastructure.mapper.ColumnsMapper;
-import com.xchaset.xtool.gen.er.infrastructure.model.ColumnsPO;
+import com.xchaset.xtool.plantuml.infrastructure.mapper.ColumnsMapper;
+import com.xchaset.xtool.plantuml.infrastructure.model.ColumnsPO;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;

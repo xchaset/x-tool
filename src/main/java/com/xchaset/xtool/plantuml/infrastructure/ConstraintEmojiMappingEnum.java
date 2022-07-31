@@ -1,4 +1,4 @@
-package com.xchaset.xtool.gen.er.infrastructure;
+package com.xchaset.xtool.plantuml.infrastructure;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -11,7 +11,7 @@ import java.util.Map;
 public enum ConstraintEmojiMappingEnum {
     PRI("\uD83D\uDD11"),
     UNI("\uD83D\uDD11"),
-    MUL("\uD83D\uDD11"),
+    MUL("\uD83D\uDDC2"),
     DEFAULT("");
 
     private final String emoji;

@@ -1,9 +1,10 @@
-package com.xchaset.xtool.gen.er.infrastructure.exporter;
+package com.xchaset.xtool.plantuml.infrastructure.exporter;
 
 import net.sourceforge.plantuml.FileFormat;
 import net.sourceforge.plantuml.FileFormatOption;
 import net.sourceforge.plantuml.FileUtils;
 import net.sourceforge.plantuml.SourceStringReader;
+import net.sourceforge.plantuml.security.SFile;
 import org.springframework.stereotype.Service;
 
 import java.io.ByteArrayOutputStream;
@@ -17,7 +18,7 @@ public class SvgExporter implements Exporter{
         try(final ByteArrayOutputStream os = new ByteArrayOutputStream()){
             String desc = reader.generateImage(os, new FileFormatOption(FileFormat.SVG));
             System.out.println(desc);
-            FileUtils.copyToFile(os.toByteArray(),new File(name + ".svg"));
+            FileUtils.copyToFile(os.toByteArray(),new SFile(name + ".svg"));
         }catch (IOException e) {
             e.printStackTrace();
         }

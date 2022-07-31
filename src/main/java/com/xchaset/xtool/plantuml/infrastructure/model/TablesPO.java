@@ -1,4 +1,4 @@
-package com.xchaset.xtool.gen.er.infrastructure.model;
+package com.xchaset.xtool.plantuml.infrastructure.model;
 
 import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;

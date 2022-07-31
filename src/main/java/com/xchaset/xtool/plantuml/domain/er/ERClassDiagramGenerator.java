@@ -1,45 +1,30 @@
-package com.xchaset.xtool.gen.er.application;
+package com.xchaset.xtool.plantuml.domain.er;
 
-import com.xchaset.xtool.gen.er.domain.repository.ColumnsRepository;
-import com.xchaset.xtool.gen.er.domain.repository.TablesRepository;
-import com.xchaset.xtool.gen.er.infrastructure.ConstraintEmojiMappingEnum;
-import com.xchaset.xtool.gen.er.infrastructure.DataTypeEmojiMappingEnum;
-import com.xchaset.xtool.gen.er.infrastructure.exporter.Exporter;
-import com.xchaset.xtool.gen.er.infrastructure.model.ColumnsPO;
-import com.xchaset.xtool.gen.er.infrastructure.model.TablesPO;
+import com.xchaset.xtool.plantuml.domain.repository.ColumnsRepository;
+import com.xchaset.xtool.plantuml.domain.repository.TablesRepository;
+import com.xchaset.xtool.plantuml.infrastructure.ConstraintEmojiMappingEnum;
+import com.xchaset.xtool.plantuml.infrastructure.DataTypeEmojiMappingEnum;
+import com.xchaset.xtool.plantuml.infrastructure.model.ColumnsPO;
+import com.xchaset.xtool.plantuml.infrastructure.model.TablesPO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import javax.annotation.Resource;
 import java.util.List;
-import java.util.Map;
-
 @Service
-public class GeneratorApplication {
+public class ERClassDiagramGenerator {
 
-    @Resource
-    private ColumnsRepository columnsRepository;
-
-    @Resource
+    @Autowired
     private TablesRepository tablesRepository;
 
     @Autowired
-    private Map<String, Exporter> exporterMap;
-
-    public String genFile(String tableSchema,String formatFileType){
-        String pumlStr = gen(tableSchema);
-        Exporter exporter = exporterMap.get(formatFileType + "Exporter");
-        if (exporter == null) {
-            throw new RuntimeException("not found exporter");
-        }
-        exporter.export(tableSchema,pumlStr);
-        return pumlStr;
-    }
+    private ColumnsRepository columnsRepository;
 
     public String gen(String tableSchema) {
         List<TablesPO> tablesPOS = tablesRepository.listTablesByTableSchema(tableSchema);
         StringBuilder sb = new StringBuilder();
         sb.append("@startuml");
+        sb.append(System.lineSeparator());
+        sb.append("!pragma layout smetana");
         sb.append(System.lineSeparator());
         for (TablesPO table : tablesPOS) {
             String tableName = table.getTableName();

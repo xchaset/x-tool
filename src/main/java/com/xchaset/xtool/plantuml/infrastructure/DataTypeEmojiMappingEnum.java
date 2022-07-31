@@ -1,4 +1,4 @@
-package com.xchaset.xtool.gen.er.infrastructure;
+package com.xchaset.xtool.plantuml.infrastructure;
 
 import com.baomidou.mybatisplus.core.toolkit.StringUtils;
 import lombok.AllArgsConstructor;

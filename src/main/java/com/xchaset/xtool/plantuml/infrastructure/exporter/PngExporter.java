@@ -1,4 +1,4 @@
-package com.xchaset.xtool.gen.er.infrastructure.exporter;
+package com.xchaset.xtool.plantuml.infrastructure.exporter;
 
 import net.sourceforge.plantuml.SourceStringReader;
 import org.springframework.stereotype.Service;
